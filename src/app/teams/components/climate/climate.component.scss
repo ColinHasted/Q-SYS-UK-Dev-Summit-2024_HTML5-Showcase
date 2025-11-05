@@ -1,0 +1,20 @@
+@import "buttons";
+@import "variables";
+
+.climate {
+  @include full-size;
+  @include center;
+  position: relative  ;
+  &__control-pane {
+    @include display-flex-row;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 64rem;
+    position: relative;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+  }
+}

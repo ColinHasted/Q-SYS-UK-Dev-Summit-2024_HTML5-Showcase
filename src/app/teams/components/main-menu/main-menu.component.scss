@@ -1,0 +1,228 @@
+@import "variables";
+@import "buttons/menu-button";
+
+$light-grey: rgb(52, 52, 52);
+
+
+.main-menu {
+  
+  background: linear-gradient(135deg, $dark-grey 0%, $light-grey 100%);
+ // border-bottom: 1px solid black;
+  padding: 0;
+  margin: 0;
+  width: 21rem;
+  height: 28.5rem;
+  border-top-right-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: inset 0 -5px 5px -5px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+
+  //filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.3));
+
+  &__title {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+      height: 1.5rem;
+    }
+
+    display: flex;
+    flex-direction:row;
+    font-size: 1.4rem;
+    width: 100%;
+    background-color:rgb(35, 35, 35);
+    border-bottom: 1px solid rgb(85, 85, 85);
+    padding: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    overflow-y:auto;
+  }
+
+  li {
+    display: block;
+    border-top: 1px solid rgb(85, 85, 85);
+    width: 100%;
+  }
+
+  li:first-child {
+    border-top: 0;
+  }
+
+  &.bottom {
+    li:first-child {
+      border-top: 1px solid rgb(85, 85, 85);
+    }
+  }
+
+
+}
+
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+  height: 5rem;
+  padding: 0.5rem;
+  padding-right: 0;
+  background-color: rgba(0, 0, 0, 0);
+  //background: rgb(45, 45, 45);
+
+  border: 0;
+  border-right: 4px solid rgba(0, 0, 0, 0);
+
+  transition: background 200ms ease, border-right 200ms ease;
+
+
+  &__icon {
+    width: 6rem;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    img {
+
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    overflow: hidden;
+    width: 100%;
+    color: white;
+    //font-family: "Montserrat Regular";
+    text-align: left;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    //text-overflow: ellipsis;
+  }
+
+  &:active {
+    background-color: rgba(54, 159, 250, 0.5);
+    border-right: 4px solid rgb(54, 159, 250);
+  }
+
+  &--no-active:active {
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    background: rgb(41, 52, 62);
+  }
+
+  &.selected {
+    background-color: rgba(47, 105, 156, 0.78);
+    border-right: 4px solid    $teams-sky-blue;;
+  }
+
+}
+
+.menu-item-inset {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35rem;
+  width: calc(100% - 2rem);
+  height: 3rem;
+  padding: 0.25rem;
+  padding-right: 0;
+
+  background-color: rgba(0, 0, 0, 0);
+  //background: rgb(45, 45, 45);
+
+  border: 0;
+  border-right: 4px solid rgba(0, 0, 0, 0);
+
+  transition: background 200ms ease, border-right 200ms ease;
+
+
+  &__icon {
+    width: 2.5rem;
+    height: 100%;
+    img {
+
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    overflow: hidden;
+    width: 100%;
+    color: white;
+    //font-family: "Montserrat Regular";
+    text-align: left;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    //text-overflow: ellipsis;
+  }
+
+  &:active {
+    background-color: rgba(54, 159, 250, 0.5);
+    border-right: 4px solid rgb(54, 159, 250);
+  }
+
+  &--no-active:active {
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    background: rgb(41, 52, 62);
+  }
+
+  &.selected {
+    background-color: rgba(47, 105, 156, 0.5);
+    border-right: 4px solid    $teams-sky-blue;;
+  }
+
+}
+
+.menu-collapsed {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.8s ease-out, visibility 0.8s ease-out, border-top 0.8s ease-in-out;
+  margin-left: 2rem;
+  width: calc(100% - 2rem);
+  visibility: hidden;
+  border-top:none;
+}
+
+.menu-expanded {
+  visibility: visible;
+  max-height: 100px;
+  border-top: 1px solid rgb(85, 85, 85);
+}
+
+
+.rotating {
+
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

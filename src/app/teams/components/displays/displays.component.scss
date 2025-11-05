@@ -1,0 +1,36 @@
+@import "buttons";
+@import "variables";
+
+.display {
+  @include full-size;
+  @include center;
+
+  &__control-pane {
+
+    @include full-size;
+    position: relative;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.8rem;
+    padding: 2rem;
+
+    font-size: 1.3rem;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    video {
+      border-radius: 1.5rem;
+      width: 90%;
+      height: 90%;
+      filter: drop-shadow(0 4px 8px rgba(25, 25, 25, 0.5));
+    }
+  }
+
+}

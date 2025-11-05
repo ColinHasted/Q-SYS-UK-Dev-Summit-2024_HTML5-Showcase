@@ -1,0 +1,75 @@
+<div class="parametric-eq">
+  <div class="parametric-eq__control-pane">
+    <canvas
+      class="parametric-eq__control-pane__canvas"
+      id="responseGraph"
+      width="960"
+      height="304"
+    ></canvas>
+
+    <div>
+      <div class="parametric-eq__control-pane__controls">
+        <div class="parametric-eq__control-pane__controls__band left-legend">
+          <span style="font-size: 0.75rem; text-align: right">Band</span>
+          <span style="font-size: 0.75rem; text-align: right">Bypass</span>
+
+          <span style="font-size: 0.75rem; text-align: right">Frequency<br></span>
+          <span style="font-size: 0.75rem; text-align: right">Gain<br></span>
+
+          <span style="font-size: 0.75rem; text-align: right">Bandwidth</span>
+          <span style="font-size: 0.75rem; text-align: right">Type</span>
+        </div>
+        <ul class="parametric-eq-bands">
+          @for(band of ParametricEqualizer.EQBands;track band ) {
+          <li class="parametric-eq__control-pane__controls__band">
+            <span class="parametric-eq__control-pane__controls__band__title">{{
+              $index + 1
+            }}</span>
+            <button
+              class="parametric-eq__control-pane__controls__band--enable"
+              [class.selected]="band.Bypass()"
+              (click)="toggleBypass($index)"
+            ></button>
+            <app-q-sys-knob
+              [value]="band.Frequency() || 1000"
+              [legend]="(band.Frequency() || 1000).toFixed(0) + ' Hz'"
+              [min]="20"
+              [max]="20000"
+              colour="rgb(63,150,96)"
+              (valueChange)="onFrequencyChange($index, $event)"
+            ></app-q-sys-knob>
+            <app-q-sys-knob
+              [value]="band.Gain() || 0"
+              [legend]="(band.Gain() || 0).toFixed(1) + ' dB'"
+              [min]="-20"
+              [max]="20"
+              colour="rgb(48,78,131)"
+              (valueChange)="onGainChange($index, $event)"
+            ></app-q-sys-knob>
+            <app-q-sys-knob
+              [value]="band.Bandwidth() || 1.0"
+              [legend]="(band.Bandwidth() || 1.0).toFixed(2)"
+              [min]="0.1"
+              [max]="5"
+              [disabled]="band.Type() !== FilterType.Parametric"
+              colour="rgb(121,114,0)"
+              (valueChange)="onBandwidthChange($index, $event)"
+            ></app-q-sys-knob>
+            <select
+              name="EQType"
+              id="type"
+              (value)="ParametricEqualizer.EQBands[$index].Type()"
+              (change)="onFilterTypeChange($index, $event)"
+            >
+              <option [value]="FilterType.Parametric">Parametric</option>
+              <option [value]="FilterType.LowShelf">Low Shelf</option>
+              <option [value]="FilterType.HighShelf">High Shelf</option>
+            </select>
+          </li>
+
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

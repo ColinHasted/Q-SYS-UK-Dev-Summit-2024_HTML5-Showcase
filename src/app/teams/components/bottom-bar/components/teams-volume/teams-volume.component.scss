@@ -1,0 +1,46 @@
+@import "buttons/menu-button";
+@import "variables";
+
+.volume {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-left: 1px solid rgba(0, 0, 0, 0.8);
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
+
+  &__central-zone {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+
+    &--indicator {
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(0deg, $dark-grey 0%, rgb(52, 52, 52) 100%);
+      font-size: 2.5rem;
+
+      &.hidden {
+        animation: fadeOut 1s 2s forwards;
+      }
+    }
+  }
+
+  .menu-button--icon--mute {
+    height: 3.5rem;
+    width: 3.5rem;
+
+    &.selected {
+      content: url("./../../../../../../assets/images/icons/audio/speaker-muted.svg");
+    }
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

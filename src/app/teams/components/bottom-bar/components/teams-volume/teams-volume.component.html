@@ -1,0 +1,44 @@
+<div class="volume">
+  <button
+    class="menu-button"
+    (pointerdown)="Down(true, $event)"
+    (pointerup)="Down(false, $event)"
+    (pointerout)="Down(false, $event)"
+  >
+    <img
+      src="./assets/images/icons/general/minus.svg"
+      class="menu-button--icon"
+    />
+  </button>
+
+  <div class="volume__central-zone">
+    <button
+      class="menu-button grid-row-1-column-1"
+      (pointerdown)="Mute(true, $event)"
+      (pointerup)="Mute(false, $event)"
+      (pointerout)="Mute(false, $event)"
+    >
+      <img
+        src="./assets/images/icons/audio/speaker.svg"
+        class="menu-button--icon menu-button--icon--mute"
+        [class.selected]="mute()"
+      />
+    </button>
+    <span
+      [class.hidden]="levelDisabled()"
+      class="volume__central-zone--indicator grid-row-1-column-1"
+      >{{ level() }}</span
+    >
+  </div>
+  <button
+    class="menu-button"
+    (pointerdown)="Up(true, $event)"
+    (pointerup)="Up(false, $event)"
+    (pointerout)="Up(false, $event)"
+  >
+    <img
+      src="./assets/images/icons/general/plus.svg"
+      class="menu-button--icon"
+    />
+  </button>
+</div>

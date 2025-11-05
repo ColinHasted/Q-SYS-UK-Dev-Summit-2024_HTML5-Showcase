@@ -1,0 +1,42 @@
+{
+  "name": "q-sys-teams-demo",
+  "version": "1.0.2",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "archive:crestron": "ch5-cli archive -p q-sys-teams-demo -d dist/q-sys-teams-example/browser -o archive",
+    "compile": "npm run build && npm run build:archive",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^20.3.4",
+    "@angular/common": "^20.3.4",
+    "@angular/compiler": "^20.3.4",
+    "@angular/forms": "^20.3.4",
+    "@angular/platform-browser": "^20.3.4",
+    "@angular/platform-browser-dynamic": "^20.3.4",
+    "@angular/router": "^20.3.4",
+    "@q-sys/qrwc": "^0.4.1-beta",
+    "chart.js": "^4.4.7",
+    "g": "^2.0.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.6.2",
+    "zone.js": "^0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.3.8",
+    "@angular/cli": "^20.3.8",
+    "@angular/compiler-cli": "^20.3.4",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.8.3"
+  }
+}

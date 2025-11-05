@@ -1,0 +1,8 @@
+@import 'mixins';
+
+.uc-engine-canvas {
+    @include full-size;
+    overflow: hidden;
+    background: #000000 url("./../assets/images/background/background-blurred.webp") no-repeat;
+    background-size: cover;
+  }

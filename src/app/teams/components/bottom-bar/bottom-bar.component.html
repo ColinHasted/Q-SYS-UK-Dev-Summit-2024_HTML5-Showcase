@@ -1,0 +1,25 @@
+<div class="bottom-bar">
+  <button class="menu-button"
+  (pointerdown)="menu(true, $event)"
+  (pointerup)="menu(false, $event)"
+  (pointerout)="menu(false, $event)"
+  [class.selected]="menuActive()"
+  >
+    <img
+      src="./assets/images/icons/general/burger-menu.svg"
+      class="menu-button--icon"
+    />
+  </button>
+
+  <app-volume></app-volume>
+
+  <button class="menu-button"
+  (pointerdown)="help(true, $event)"
+  (pointerup)="help(false, $event)"
+  (pointerout)="help(false, $event)">
+    <img
+      src="./assets/images/icons/help/question-mark.svg"
+      class="menu-button--icon"
+    />
+  </button>
+</div>

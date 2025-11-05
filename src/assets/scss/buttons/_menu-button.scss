@@ -1,0 +1,23 @@
+.menu-button {
+    height: 100%;
+    width: 6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+
+    background-color: rgba(47, 105, 156, 0);
+
+    &--icon {
+      opacity: 0.9;
+      pointer-events: none;
+      width: 2rem;
+    }
+    // Due to :active sticking on mobile, we need to add a class to the button manually.
+    &.active,&.selected {
+      background-color: rgba(47, 105, 156, 0.78);
+    }
+  }

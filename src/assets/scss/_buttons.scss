@@ -1,0 +1,15 @@
+@import "buttons/back-button";
+@import "buttons/teams-buttons";
+@import "variables";
+@import "mixins";
+
+
+.teams-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+

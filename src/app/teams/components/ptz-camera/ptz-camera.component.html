@@ -1,0 +1,78 @@
+<div class="ptz-camera">
+  <div class="ptz-camera__control-pane">
+    <div class="ptz-camera__controls">
+      <app-d-pad
+        (homePress)="home($event)"
+        (directionChange)="onDpadDirectionChange($event)"
+      ></app-d-pad>
+      <div class="zoom-grid">
+        <button
+          class="teams-btn-round"
+          (pointerdown)="zoomIn(true, $event)"
+          (pointerup)="zoomIn(false, $event)"
+          (pointerout)="zoomIn(false, $event)"
+        >
+          <img
+            class="teams-btn-round__image"
+            src="./assets/images/icons/camera/zoom-in.svg"
+          />
+        </button>
+        <div class="zoom-grid__title">Zoom</div>
+        <button
+          class="teams-btn-round"
+          (pointerdown)="zoomOut(true, $event)"
+          (pointerup)="zoomOut(false, $event)"
+          (pointerout)="zoomOut(false, $event)"
+        >
+          <img
+            class="teams-btn-round__image"
+            src="./assets/images/icons/camera/zoom-out.svg"
+          />
+        </button>
+      </div>
+    </div>
+
+    <div class="ptz-preset-container">
+      <div>Camera Presets</div>
+      @for (item of presets; track item;) {
+      <button
+        class="preset-button"
+        (pointerdown)="preset($index + 1, true, $event)"
+        (pointerup)="preset($index + 1, false, $event)"
+        (pointerout)="preset($index + 1, false, $event)"
+        [class.selected]="item.active()"
+      >
+        {{ item.name }}
+      </button>
+      }
+    </div>
+
+    <div class="ptz-preset-container">
+      Additional Controls
+      <button
+        class="settings-button"
+        (pointerdown)="toggleAutoFraming(true, $event)"
+        (pointerup)="toggleAutoFraming(false, $event)"
+        (pointerout)="toggleAutoFraming(false, $event)"
+        [class.selected]="AutoFrameEnabled()"
+      >
+        <img src="./assets/images/icons/camera/auto-framing.svg" />
+        Auto Framing
+      </button>
+      <button
+        class="settings-button privacy"
+        (pointerdown)="togglePrivacy(true, $event)"
+        (pointerup)="togglePrivacy(false, $event)"
+        (pointerout)="togglePrivacy(false, $event)"
+        [class.selected]="PrivacyEnabled()"
+      >
+        <img src="./assets/images/icons/camera/privacy.svg" />
+        Privacy
+      </button>
+    </div>
+    <img
+      class="ptz-camera-icon"
+      src="./assets/images/icons/camera/ptz-camera.svg"
+    />
+  </div>
+</div>

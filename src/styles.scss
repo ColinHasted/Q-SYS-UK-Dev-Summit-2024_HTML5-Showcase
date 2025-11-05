@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+@import "variables";
+@import "mixins";
+@import "grids";
+
+* {
+  @include user-select(none);
+}
+
+@font-face {
+  font-family: 'Segoe UI Variable Small';
+  src:
+    local('Segoe UI Variable Small'),
+    url('/assets/fonts/Segoe/SegoeUI-VF.ttf') format('truetype-variations');
+  font-variation-settings: 'opsz' 1;
+  font-weight: 300 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Segoe UI Variable Text';
+  src:
+    local('Segoe UI Variable Text'),
+    url('./assets/fonts/Segoe/SegoeUI-VF.ttf') format('truetype-variations');
+  font-variation-settings: 'opsz' 10.5;
+  font-weight: 300 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Segoe UI Variable Display';
+  src:
+    local('Segoe UI Variable Display'),
+    url('./assets/fonts/Segoe/SegoeUI-VF.ttf') format('truetype-variations');
+  font-variation-settings: 'opsz' 36;
+  font-weight: 300 700;
+  font-style: normal;
+}
+
+html,
+body {
+
+  /**touch-action: manipulation;**/
+
+  box-sizing: border-box;
+  font-family: "Segoe UI Variable Text", "Segoe UI", Arial, sans-serif;
+
+  color: white;
+
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+
+  font-size: max(6px, 1.25vw);
+}
+
+
+@media (orientation: portrait) {
+
+  html,
+  body {
+    font-size: max(6px, 1.25vh);
+  }
+}

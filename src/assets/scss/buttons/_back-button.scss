@@ -1,0 +1,19 @@
+@import "variables";
+
+.back-button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: white;
+  width: 3rem;
+  font-family: "Segoe UI";
+  font-size: 1.3rem;
+
+
+  &:active {
+    img {
+      filter: $teams-icon-selected-filter;
+    }
+  }
+}

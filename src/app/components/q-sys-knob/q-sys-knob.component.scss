@@ -1,0 +1,39 @@
+.q-sys-level {
+  width: 3rem;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+  &__dial {
+    background-color: white;
+    border-radius: 500px 500px 0 0;
+    height: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  &__dial::after {
+    background: conic-gradient(
+      from -90deg,
+      var(--indicator-color) var(--angle),
+      transparent 0deg
+    );
+    content: "";
+    height: 200%;
+    position: absolute;
+    width: 100%;
+  }
+
+  &__legend {
+    height: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+    color: black;
+    background-color: white;
+  }
+}
+
+.disabled
+{
+  opacity: 0.3;
+  pointer-events: none;
+  filter:saturate(0.4);
+}

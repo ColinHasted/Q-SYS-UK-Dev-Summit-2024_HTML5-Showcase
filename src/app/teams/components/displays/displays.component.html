@@ -1,0 +1,24 @@
+<div class="display">
+  <div class="display__control-pane">
+    <div class="display__controls">
+    
+      <video
+        #videoPlayer
+
+        autoplay
+
+        [muted]="gainComponent.mute()"
+        [volume]="gainComponent.position()"
+        (click)="togglePlayPause(videoPlayer)"
+        loop
+
+      >
+        <source
+          src="./assets/video/q-sys-designer-updates.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>

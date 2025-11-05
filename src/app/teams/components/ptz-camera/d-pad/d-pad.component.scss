@@ -1,0 +1,85 @@
+@import "variables";
+@import "mixins";
+
+.d-pad {
+  aspect-ratio: 1/1;
+  width: 20.1rem;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  $border-radius: 1.3rem;
+
+  &__button {
+    @include clear-button-styling;
+    align-items: center;
+    background: $teams-smoke-grey;
+
+    display: flex;
+    justify-content: center;
+
+    &.active img {
+      filter: $teams-icon-selected-filter;
+    }
+
+    img {
+      pointer-events: none;
+      width: 30%;
+    }
+
+    &--centre img {
+      width: 45%;
+    }
+
+    &--up {
+      border-radius: $border-radius $border-radius 0 0;
+      img {
+        margin-bottom: 0.35rem;
+      }
+    }
+
+    &--down {
+      border-radius: 0 0 $border-radius $border-radius;
+      img {
+        margin-top: 0.35rem;
+      }
+    }
+
+    &--left {
+      border-radius: $border-radius 0 0 $border-radius;
+      img {
+        margin-right: 0.35rem;
+      }
+    }
+
+    &--right {
+      border-radius: 0 $border-radius $border-radius 0;
+      img {
+        margin-left: 0.35rem;
+      }
+    }
+  }
+
+  &__corner {
+    @include full-size;
+    overflow: hidden;
+
+    &--bottom-left {
+      border-top-right-radius: $border-radius;
+      box-shadow: 1.5rem -1.5rem 0 0 $teams-smoke-grey;
+    }
+
+    &--bottom-right {
+      border-top-left-radius: $border-radius;
+      box-shadow: -1.5rem -1.5rem 0 0$teams-smoke-grey;
+    }
+
+    &--top-left {
+      border-bottom-right-radius: $border-radius;
+      box-shadow: 1.5rem 1.5rem 0 0 $teams-smoke-grey;
+    }
+
+    &--top-right {
+      border-bottom-left-radius: $border-radius;
+      box-shadow: -1.5rem 1.5rem 0 0 $teams-smoke-grey;
+    }
+  }
+}

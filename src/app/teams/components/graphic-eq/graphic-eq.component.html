@@ -1,0 +1,41 @@
+<div class="graphic-eq">
+  <div class="graphic-eq__control-pane">
+    <canvas
+      class="graphic-eq__control-pane__canvas"
+      id="responseGraph"
+      width="960"
+      height="304"
+    ></canvas>
+
+    <div class="graphic-eq__control-pane__controls">
+      <li class="graphic-eq-band">
+        <span class="graphic-eq-band__title" style="width: 2.7rem; text-align: right;">Freq</span>
+        <span class="graphic-eq-band__title" style="width: 2.7rem;  text-align: right;">Bypass</span>
+        <span class="graphic-eq-band__title" style="width: 2.7rem;  text-align: right; height:6.5rem">Gain</span>
+        <button class="graphic-eq-band__enable" (click)="reset()">flat</button>
+      </li>
+      <ul class="graphic-eq-bands">
+        @for(band of GraphicEqualizer.Bands;track band) {
+        <li class="graphic-eq-band">
+          <span class="graphic-eq-band__title">{{ band.Title }}</span>
+          <button
+            class="graphic-eq-band__enable"
+            [class.selected]="band.Bypass()"
+            (click)="toggleBypass($index)"
+          ></button>
+          <input
+            class="graphic-eq-band__slider"
+            type="range"
+            orient="vertical"
+            [value]="band.Gain()"
+            min="-20"
+            max="20"
+            (input)="onSliderChange($index, $event)"
+          />
+          <span class="graphic-eq-band__legend">{{ band.Legend() }}</span>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

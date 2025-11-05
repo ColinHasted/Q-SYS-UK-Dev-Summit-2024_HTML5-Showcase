@@ -1,0 +1,107 @@
+<div class="main-menu">
+  <div class="main-menu__title">
+    <img src="./assets/images/icons/general/controls.svg" />
+    <span>Room Controls</span>
+  </div>
+  <ul class="main-menu__items">
+    <li>
+      <button
+        class="menu-item"
+        [class.selected]="item() == Popup.camera"
+        (click)="SelectItem(Popup.camera)"
+      >
+        <div class="menu-item__icon">
+          <img src="./assets/images/icons/camera/ptz-camera.svg" />
+        </div>
+        <span class="menu-item__text">Camera</span>
+      </button>
+    </li>
+    <li>
+      <button
+        class="menu-item"
+        [class.selected]="item() == Popup.lighting"
+        (click)="SelectItem(Popup.lighting)"
+      >
+        <div class="menu-item__icon">
+          <img src="./assets/images/icons/general/lights.svg" />
+        </div>
+        <span class="menu-item__text">Lighting</span>
+      </button>
+    </li>
+    <li>
+      <button
+        class="menu-item"
+        [class.selected]="audio()"
+        (click)="SelectItem(Popup.audio_graphic_eq)"
+      >
+        <div class="menu-item__icon">
+          <img src="./assets/images/icons/audio/speaker.svg" />
+        </div>
+        <span class="menu-item__text">Audio</span>
+      </button>
+    </li>
+    <li class="menu-collapsed" [class.menu-expanded]="audio()">
+      <button
+        class="menu-item-inset"
+        [class.selected]="item() == Popup.audio_graphic_eq"
+        (click)="SelectItem(Popup.audio_graphic_eq)"
+      >
+        <div class="menu-item-inset__icon">
+          <img src="./assets/images/icons/audio/graphic-eq.svg" />
+        </div>
+        <span class="menu-item-inset__text">Graphic EQ</span>
+      </button>
+    </li>
+    <li class="menu-collapsed" [class.menu-expanded]="audio()">
+      <button
+        class="menu-item-inset"
+        [class.selected]="item() == Popup.audio_parametric_eq"
+        (click)="SelectItem(Popup.audio_parametric_eq)"
+      >
+        <div class="menu-item-inset__icon">
+          <img src="./assets/images/icons/audio/parametric-eq.svg" />
+        </div>
+        <span class="menu-item-inset__text">Parametric EQ</span>
+      </button>
+    </li>
+    <li class="menu-collapsed" [class.menu-expanded]="audio()">
+      <button
+        class="menu-item-inset"
+        [class.selected]="item() == Popup.audio_responsalyzer"
+        (click)="SelectItem(Popup.audio_responsalyzer)"
+      >
+        <div class="menu-item-inset__icon">
+          <img src="./assets/images/icons/audio/responsalyzer.svg" />
+        </div>
+        <span class="menu-item-inset__text">Responsalyzer</span>
+      </button>
+    </li>
+
+    <li>
+      <button
+        class="menu-item"
+        [class.selected]="item() == Popup.displays"
+        (click)="SelectItem(Popup.displays)"
+      >
+        <div class="menu-item__icon">
+          <img src="./assets/images/icons/display/tv.svg" />
+        </div>
+        <span class="menu-item__text">Displays</span>
+      </button>
+    </li>
+    <li>
+      <button
+        class="menu-item"
+        [class.selected]="item() == Popup.climate"
+        
+        
+        (click)="SelectItem(Popup.climate)"
+      >
+        <div class="menu-item__icon">
+          <img [class.rotating]="item() == Popup.climate" src="./assets/images/icons/environmental/cooling.svg" />
+        </div>
+        <span class="menu-item__text">Climate & Shades</span>
+      </button>
+    </li>
+  </ul>
+</div>

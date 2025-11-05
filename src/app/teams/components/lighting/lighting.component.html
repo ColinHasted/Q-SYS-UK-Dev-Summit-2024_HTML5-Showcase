@@ -1,0 +1,47 @@
+<div class="ptz-camera">
+  <div class="ptz-camera__control-pane">
+    <div class="ptz-camera__controls">
+
+      <div class="lighting-faders">
+        <div>
+        <input type="range"    min="0"
+        max="100" orient="vertical" [value]="levels[0]()" (input)="onSliderChange(0, $event)"/>
+        <span>Perimeter</span>
+      </div>
+
+        <div>
+        <input type="range" orient="vertical" [value]="levels[1]()" (input)="onSliderChange(1, $event)"/>
+        <span>Front</span>
+
+      </div>
+      <div>
+        <input type="range" orient="vertical" [value]="levels[2]()" (input)="onSliderChange(2, $event)"/>
+
+        <span>Table</span>
+      </div>
+      <div>
+        <input type="range" orient="vertical" [value]="levels[3]()" (input)="onSliderChange(3, $event)"/>
+        <span>Master</span>
+      </div>
+    </div>
+
+    <div class="ptz-preset-container">
+      <div>Lighting Presets</div>
+      @for (item of presets; track item;) {
+        <button
+          class="preset-button"
+          (pointerdown)="preset($index + 1, true, $event)"
+          (pointerup)="preset($index + 1, false, $event)"
+          (pointerout)="preset($index + 1, false, $event)"
+          [class.selected]="item.active() "
+
+        >
+          {{item.name}}
+        </button>
+        }
+    </div>
+
+
+
+  </div>
+</div>

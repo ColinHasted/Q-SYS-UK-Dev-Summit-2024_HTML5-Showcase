@@ -1,0 +1,33 @@
+<div class="app">
+  <div class="app__controls" (click)="clearMenuPopup()">
+    <button class="back-button" (click)="HideProject()">
+      <img class="back-button--image" src="assets/images/icons/navigation/left-arrow.svg" />
+      <span class="back-button--text">Back</span>
+    </button>
+    @switch(CurrentPopup()) { @case (Popup.audio_graphic_eq){
+    <app-graphic-eq />
+    } @case (Popup.audio_parametric_eq){
+    <app-parametric-eq />
+    } @case (Popup.audio_responsalyzer){
+    <app-responsalyzer />
+    } @case (Popup.camera){
+    <app-ptz-camera-with-preview [previewEnable]="true" />
+    } @case (Popup.lighting){
+    <app-lighting />
+    } @case (Popup.displays){
+    <app-displays />
+    } @case (Popup.climate){
+    <app-climate />
+    } }
+
+    <img class="app__controls--logo-branding" src="./assets/images/logo/q-sys-logo-white.svg" />
+  </div>
+  @if(mainMenuActive()) {
+  <app-main-menu class="main-menu" @fadeIn @fadeOut [item]="CurrentPopup()" (setItem)="showPopup($event)"
+    (click)="showMenuPopup()"></app-main-menu>}
+  <app-bottom-bar (menuRequest)="toggleMenuPopup()" (helpRequest)="helpRequest()"
+    [menuActive]="mainMenuActive()"></app-bottom-bar>
+  @if(supportModal()) {
+  <app-support class="modal-full-screen-popup" @fadeIn @fadeOut (close)="clearHelpRequest()"></app-support>
+  }
+</div>

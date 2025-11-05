@@ -1,0 +1,15 @@
+<div class="q-sys-level" [class.disabled]="disabled()">
+  <div
+    class="q-sys-level__dial"
+
+    [style]="{
+      '--angle': angle(),
+      '--indicator-color': colour()
+    }"
+    (mousedown)="startDrag($event)"
+    (touchstart)="startDrag($event)"
+  ></div>
+  <div class="q-sys-level__legend">
+    {{ legend() }}
+  </div>
+</div>

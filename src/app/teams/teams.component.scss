@@ -1,0 +1,48 @@
+@import "variables";
+@import "buttons";
+@import "mixins";
+
+.app {
+  @include full-size;
+  display: flex;
+  flex-direction: column;
+
+  &__controls {
+    flex: 1;
+    position: relative;
+    padding: 1.8rem;
+    overflow: hidden;
+
+    &--logo-branding {
+      position: absolute;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      width: 20rem;
+      opacity: 0.8;
+    }
+  }
+}
+
+.modal-full-screen-popup{
+
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  left:0;
+  position: absolute;
+  z-index: 80;
+  backdrop-filter: blur(0.25rem);
+}
+
+
+.main-menu
+{
+  position: absolute;
+  z-index: 44;
+  top:calc(100vh - 34.75rem);
+}
+
+.back-button{
+  position: absolute; top: 1.8rem; left: 1.8rem;
+  z-index: 3;
+}

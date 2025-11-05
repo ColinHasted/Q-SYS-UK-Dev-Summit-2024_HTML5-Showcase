@@ -1,0 +1,73 @@
+@import "mixins";
+@import "variables";
+
+.teams-btn-round {
+  @include clear-button-styling;
+
+  background-color: $teams-smoke-grey;
+  width: 6.7rem;
+  height: 6.7rem;
+  border-radius: 50%;
+  border: 0.15rem solid transparent;
+  padding: 1.2rem;
+
+  &.active,
+  &.selected {
+    border-color: $teams-icon-selected;
+
+    img {
+      filter: $teams-icon-selected-filter;
+    }
+  }
+
+  img {
+    pointer-events: none;
+    width: 80%;
+  }
+}
+
+.preset-button {
+  @include clear-button-styling;
+  width: 12rem;
+  height: 4rem;
+
+  border: none;
+  border-radius: 0.3rem;
+  color: white;
+  background-color: $teams-smoke-grey;
+  font-size: 1.2rem;
+
+  &.active,
+  &.selected {
+    background-color: $teams-sky-blue;
+  }
+}
+
+.settings-button {
+  @include clear-button-styling;
+  width: 12rem;
+  height: 4rem;
+  padding:0.6rem;
+  border: none;
+  border-radius: 0.3rem;
+  color: white;
+  background-color: $teams-smoke-grey;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.4rem;
+  img{
+    max-height: 90%;
+    width: 25%;
+  }
+
+  &.active,
+  &.selected {
+    background-color: $teams-sky-blue;
+  }
+  &.selected.privacy{
+    background-color: red;
+  }
+
+}

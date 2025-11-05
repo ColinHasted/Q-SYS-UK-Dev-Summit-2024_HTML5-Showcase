@@ -1,0 +1,29 @@
+@import "buttons";
+@import "variables";
+
+.responsalyser {
+  @include full-size;
+  @include center;
+
+  &__control-pane {
+    background-color: rgba(0,0,0,0.1);
+    width: 64rem;
+    height: 30rem;
+    position:relative;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.8rem;
+    padding: 2rem;
+    margin-bottom:  3rem;
+    font-size: 1.3rem;
+  }
+
+  &__canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+}
